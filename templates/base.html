@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+{% load static tailwind_tags %} {% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=B612+Mono&display=swap"
+      rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+      
+    <style>
+      body {
+        font-family: "B612 Mono", monospace;
+      }
+    </style>
+    {% tailwind_css %}
+  </head>
+  <body class="">
+    <div class="h-[100%] bg-[#2A2A2A] relative">
+      {% include 'navbar.html' %} {% block content %} {% endblock content %}
+      <div
+        class="shadow-lg py-[2rem] z-10 sticky bottom-0 right-0 bg-[#2A2A2A] w-full">
+        <div class="down container mx-auto">
+          <div
+            class="bg-[#303030] px-[2rem] py-[2.5rem] rounded-md fade-in-fwd">
+            <ul class="flex gap-2 justify-center">
+              <li class=" ">
+                <a
+                  class="text-white bg-[#3E4040] px-[5rem] py-[1rem] rounded-md cursor-pointer hover:bg-[#00D1CD]"
+                  href="{% url 'home' %}">
+                  <i class="uil uil-estate text-lg"></i> Home</a
+                >
+              </li>
+              <li class="">
+                <a
+                  class="text-white bg-[#3E4040] px-[5rem] py-[1rem] rounded-md cursor-pointer hover:bg-[#00D1CD]"
+                  href="index.php?page=about"
+                  ><i class="uil uil-folder-exclamation text-lg"></i> About</a
+                >
+              </li>
+              <li class="">
+                <a
+                  class="text-white bg-[#3E4040] px-[5rem] py-[1rem] rounded-md cursor-pointer hover:bg-[#00D1CD]"
+                  href="index.php?page=contact"
+                  ><i class="uil uil-envelope-minus text-lg"></i> Contact</a
+                >
+              </li>
+              <li class="">
+                <a
+                  class="text-white bg-[#3E4040] px-[5rem] py-[1rem] rounded-md cursor-pointer hover:bg-[#00D1CD]"
+                  href="{% url 'projects' %}"
+                  ><i class="uil uil-folder text-lg"></i> Projects</a
+                >
+              </li>
+              <li class="">
+                <a
+                  class="text-white bg-[#3E4040] px-[5rem] py-[1rem] rounded-md cursor-pointer hover:bg-[#00D1CD]"
+                  href="index.php?page=contact"
+                  ><i class="uil uil-clipboard-alt text-lg"></i> Certificates
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+</html>

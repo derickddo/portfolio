@@ -5,6 +5,9 @@ name = "pypi"
 
 [packages]
 django = "*"
+pillow = "*"
+django-tailwind = "*"
+django-browser-reload = "*"
 
 [dev-packages]
 
