@@ -1,7 +1,7 @@
 .text_2nd::before {
     content: "";
     color: #fff;
-    background-color:#2A2A2A;
+    background-color:#202020;
     top: 0;
     left: 0;
     border-left: 2px solid #fff;
@@ -45,3 +45,4 @@
     opacity: 1;
   }
 }
+
