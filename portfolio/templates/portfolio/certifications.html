@@ -1,0 +1,29 @@
+{% extends 'base.html' %} {% block content %}
+<section class="slide-in-right">
+  <div class="container lg:w-[80%] mx-auto mt-[2rem]">
+    <h1 class="text-white text-3xl">Certificates</h1>
+    <div class="">
+      <div class="">
+        <h3 class="text-white text-lg font-bold">Name</h3>
+      </div>
+      <div class="mt-5">
+        <button
+          class="text-white bg-slate-700 py-[1rem] px-[3rem]"
+          id="update"
+          hx-trigger="click"
+          hx-post="{% url 'state' %}"
+          hx-target="#state">
+          Update  
+        </button>
+        <p
+          id="stateDisplay"
+          class="text-white"
+          hx-get="{% url 'state' %}">
+          State : <span id="state">Initial</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock content %} 

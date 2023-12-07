@@ -1,38 +1,33 @@
 .text_2nd::before {
-    content: "";
-    color: #fff;
-    background-color:#202020;
-    top: 0;
-    left: 0;
-    border-left: 2px solid #fff;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    animation: animate 4s steps(12) infinite
-
+  content: "";
+  color: #fff;
+  background-color: #202020;
+  top: 0;
+  left: 0;
+  border-left: 2px solid #fff;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  animation: animate 4s steps(12) infinite;
+}
+.active {
+  background-color: #00d1cd;
+  color: #fff;
+  border-left: 2px solid #fff;
 }
 
-
-/* .down::before {
-    content: "";
-    top: 0;
-    left: 0;
-    position: absolute;
-    height: 10%;
-    width: 100%;
-    background: linear-gradient(to bottom, #272727, #2A2A2A);
-} */
 @keyframes animate {
-    40%, 60% {
-        left: 100%;
-    }
-    100% {
-        left: 0;
-    }
+  40%,
+  60% {
+    left: 100%;
+  }
+  100% {
+    left: 0;
+  }
 }
 
 .fade-in-fwd {
-	animation: fade-in-fwd 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  animation: fade-in-fwd 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 }
 
 @keyframes fade-in-fwd {
@@ -46,3 +41,18 @@
   }
 }
 
+
+@keyframes slide-in-right {
+  0% {
+    transform: translateX(1000px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slide-in-right {
+  animation: slide-in-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}

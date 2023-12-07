@@ -14,66 +14,94 @@
     <link
       rel="stylesheet"
       href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-      
+    <script
+      src="https://unpkg.com/htmx.org@1.9.9"
+      integrity="sha384-QFjmbokDn2DjBjq+fM+8LUIVrAgqcNW2s0PjAxHETgRn9l4fvX31ZxDxvwQnyMOX"
+      crossorigin="anonymous"></script>
+
     <style>
       body {
         font-family: "B612 Mono", monospace;
-        background:#202020;
-        
+        background: #202020;
       }
     </style>
     {% tailwind_css %}
   </head>
-  <body class="">
-    <div class="relative">
+  <body class="h-[100vh] overflow-auto">
+    <div id="main" class="relative h-full">
       {% include 'navbar.html' %} {% block content %} {% endblock content %}
-     
-      <div class="py-[2rem] flex  from-[#202020] to-transparent  z-10 sticky bottom-0 right-0 bg-gradient-to-tr  w-full">
-        <div class="container mx-auto">
-            <ul class="grid gap-3 grid-cols-5">
-              <li class="w-full">
-                <a
-                  class="text-white flex justify-center items-center gap-2 w-full bg-[#3E4040]  py-[1rem] rounded-md cursor-pointer hover:bg-[#00D1CD]"
-                  href="{% url 'home' %}">
-                  <i class="uil uil-estate text-lg"></i> Home</a
-                >
-              </li>
-              <li class="w-full">
-                <a
-                  class="text-white bg-[#3E4040] flex justify-center items-center gap-2 w-full py-[1rem] rounded-md cursor-pointer hover:bg-[#00D1CD]"
-                  href="index.php?page=about"
-                  ><i class="uil uil-folder-exclamation text-lg"></i> About</a
-                >
-              </li>
-              <li class="w-full">
-                <a
-                  class="text-white flex justify-center items-center gap-2 w-full bg-[#3E4040]  py-[1rem] rounded-md cursor-pointer hover:bg-[#00D1CD]"
-                  href="index.php?page=contact"
-                  ><i class="uil uil-envelope-minus text-lg"></i> Contact</a
-                >
-              </li>
-              <li class="w-full">
-                <a
-                  class="text-white bg-[#3E4040] flex justify-center items-center py-[1rem] gap-2 w-fullpy-[1rem] rounded-md cursor-pointer hover:bg-[#00D1CD]"
-                  href="{% url 'projects' %}"
-                  ><i class="uil uil-folder text-lg"></i> Projects</a
-                >
-              </li>
-              <li class="w-full">
-                <a
-                  class="text-white flex justify-center items-center gap-2 w-full bg-[#3E4040]  py-[1rem] rounded-md cursor-pointer hover:bg-[#00D1CD]"
-                  href="index.php?page=contact"
-                  ><i class="uil uil-clipboard-alt text-lg"></i> Certificates
-                </a>
-              </li>
-            </ul>
-          
+
+      <div
+        class=" lg:py-[2rem] flex from-[#202020] to-transparent z-10 fixed bottom-0 right-0 bg-gradient-to-tr w-full">
+        <div class="container w-[90%] md:w-[85%] lg:w-[80%] mx-auto mb-[1rem]">
+          <ul class="grid gap-3 grid-cols-5">
+            <li class="w-full flex justify-center">
+              <a
+                class="text-white lg:flex justify-center hidden {% if request.path == '/'%} bg-[#00D1CD] {% else %} bg-[#3E4040] {% endif %} items-center gap-2 w-full py-[1rem] rounded-md cursor-pointer hover:bg-[#00D1CD] ease-in duration-300"
+                href="{% url 'home' %}"
+                hx-get="{% url 'home' %}"
+                hx-target="#main"
+                hx-push-url="true"
+                hx-trigger="click">
+                <i class="uil uil-estate text-lg"></i>Home</a
+              >
+              <a class="text-[2rem] block lg:hidden xl:hidden" href=""><i class="uil uil-estate  text-[#00D1CD]"></i></a>
+            </li>
+
+            <li class="w-full">
+              <a
+                class="text-white {% if request.path == '/'%} bg-[#00D1CD] {% else %} bg-[#3E4040] {% endif %} link bg-[#3E4040] hidden lg:flex justify-center items-center gap-2 w-full py-[1rem] rounded-md cursor-pointer hover:bg-[#00D1CD] ease-in duration-300"
+                href="index.php?page=about"
+                ><i class="uil uil-folder-exclamation text-lg"></i> About</a
+              >
+              <a class="text-[2rem] block lg:hidden xl:hidden" href=""><i class="uil uil-folder-exclamation  text-[#00D1CD]"></i></a>
+            </li>
+            <li class="w-full">
+              <a
+                class="text-white hidden {% if request.path == '/contact/'%} bg-[#00D1CD] {% else %} bg-[#3E4040] {% endif %} link xl:flex justify-center items-center gap-2 w-full py-[1rem] rounded-md cursor-pointer hover:bg-[#00D1CD] ease-in duration-300"
+                hx-get="{% url 'contact' %}"
+                hx-target="#main"
+                hx-push-url="true"
+                href="{% url 'contact' %}"
+                hx-trigger="click"
+                ><i class="uil uil-envelope-minus text-lg"></i> Contact</a
+              >
+              <a class="text-[2rem] block lg:hidden xl:hidden" href=""><i class="uil uil-envelope-minus  text-[#00D1CD]"></i></a>
+            </li>
+            <li class="w-full">
+              <a
+                class="text-white hidden {% if request.path == '/projects/'%} bg-[#00D1CD] {% else %} bg-[#3E4040] {% endif %} link xl:flex justify-center items-center py-[1rem] gap-2 w-fullpy-[1rem] rounded-md cursor-pointer hover:bg-[#00D1CD] ease-in duration-300"
+                href="{% url 'projects' %}"
+                hx-get="{% url 'projects' %}"
+                hx-target="#main"
+                hx-push-url="true"
+                ><i class="uil uil-folder text-lg"></i> Projects</a
+              >
+              <a class="text-[2rem] block lg:hidden xl:hidden" href=""><i class="uil uil-folder text-[#00D1CD]"></i></a>
+            </li>
+            <li class="w-full">
+              <a
+                class="text-white hidden {% if request.path == '/certifications/' %} bg-[#00D1CD] {% else %} bg-[#3E4040] {% endif %} link xl:flex justify-center items-center gap-2 w-full py-[1rem] rounded-md cursor-pointer hover:bg-[#00D1CD] ease-in duration-300"
+                href="{% url 'certifications' %}"
+                hx-get="{% url 'certifications' %}"
+                hx-target="#main"
+                hx-push-url="true"
+                ><i class="uil uil-clipboard-alt text-lg"></i> Certificates
+              </a>
+              <a class="text-[2rem] block lg:hidden xl:hidden" href=""><i class="uil uil-clipboard-alt text-[#00D1CD]"></i></a>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
+    <script>
+      function cancelMenu() {
+        document.querySelector(".menu").classList.add('hidden')
+        
+      }
+      function openMenu() {
+        document.querySelector(".menu").classList.remove('hidden')
+      }
+    </script>
   </body>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </html>
