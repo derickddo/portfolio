@@ -11,9 +11,15 @@
     <link
       href="https://fonts.googleapis.com/css2?family=B612+Mono&display=swap"
       rel="stylesheet" />
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
     <link
       rel="stylesheet"
       href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css" />
     <script
       src="https://unpkg.com/htmx.org@1.9.9"
       integrity="sha384-QFjmbokDn2DjBjq+fM+8LUIVrAgqcNW2s0PjAxHETgRn9l4fvX31ZxDxvwQnyMOX"
@@ -32,63 +38,112 @@
       {% include 'navbar.html' %} {% block content %} {% endblock content %}
 
       <div
-        class=" lg:py-[2rem] flex from-[#202020] to-transparent z-10 fixed bottom-0 right-0 bg-gradient-to-tr w-full">
-        <div class="container w-[90%] md:w-[85%] lg:w-[80%] mx-auto mb-[1rem]">
-          <ul class="grid gap-3 grid-cols-5">
-            <li class="w-full flex justify-center">
+        class="h-[5rem] md:h-[7rem] 2xl:h-[8rem] xl:h-[7rem] flex items-center z-10 fixed bottom-0 right-0 left-0 bg-gradient-to-tr w-full bg-[#202020] bg-opacity-70 shadow-md backdrop-filter backdrop-blur-md">
+        <div class="container w-[90%] md:w-[85%] 2xl:w-[70%] lg:w-[80%] mx-auto">
+          <ul class="xl:grid gap-3 xl:grid-cols-5 flex justify-between">
+            <li class="">
               <a
-                class="text-white lg:flex justify-center hidden {% if request.path == '/'%} bg-[#00D1CD] {% else %} bg-[#3E4040] {% endif %} items-center gap-2 w-full py-[1rem] rounded-md cursor-pointer hover:bg-[#00D1CD] ease-in duration-300"
+                class="xl:flex justify-center hidden {% if request.path == '/'%} bg-[#00D1CD] font-bold text-gray-800 {% else %} bg-[#3E4040] text-white{% endif %} items-center gap-2 w-full 2xl:py-[1rem] lg:py-[0.7rem] rounded-md cursor-pointer hover:bg-[#00D1CD] hover:text-gray-800 hover:font-bold ease-in duration-300"
                 href="{% url 'home' %}"
                 hx-get="{% url 'home' %}"
                 hx-target="#main"
                 hx-push-url="true"
                 hx-trigger="click">
-                <i class="uil uil-estate text-lg"></i>Home</a
+                <i class="bi bi-house-door text-xl"></i>Home</a
               >
-              <a class="text-[2rem] block lg:hidden xl:hidden" href=""><i class="uil uil-estate  text-[#00D1CD]"></i></a>
+              <a
+                class="text-[1.7rem] md:text-[2rem] {% if request.path == '/'%} text-[#00D1CD] {% else %} text-white{% endif %} xl:hidden flex flex-col gap-0 items-center"
+                href="{% url 'home' %}"
+                hx-get="{% url 'home' %}"
+                hx-target="#main"
+                hx-push-url="true"
+                hx-trigger="click"
+                ><i class="bi bi-house-door-fill"></i>
+                <span class="text-[0.7rem] md:text-[1rem]">Home</span></a
+              >
             </li>
 
-            <li class="w-full">
+            <li class="">
               <a
-                class="text-white {% if request.path == '/'%} bg-[#00D1CD] {% else %} bg-[#3E4040] {% endif %} link bg-[#3E4040] hidden lg:flex justify-center items-center gap-2 w-full py-[1rem] rounded-md cursor-pointer hover:bg-[#00D1CD] ease-in duration-300"
-                href="index.php?page=about"
-                ><i class="uil uil-folder-exclamation text-lg"></i> About</a
+                class="{% if request.path == '/about/'%} bg-[#00D1CD] text-gray-800 font-bold {% else %} bg-[#3E4040] text-white {% endif %} hidden xl:flex justify-center items-center gap-2 w-full 2xl:py-[1rem] lg:py-[0.7rem] rounded-md cursor-pointer hover:bg-[#00D1CD] hover:text-gray-800 font-bold ease-in duration-300"
+                
+                hx-target="#main"
+                hx-get="{% url 'about' %}"
+                hx-push-url="true"
+                hx-trigger="click"
+                ><i class="uil uil-folder-exclamation text-xl"></i> About</a
               >
-              <a class="text-[2rem] block lg:hidden xl:hidden" href=""><i class="uil uil-folder-exclamation  text-[#00D1CD]"></i></a>
-            </li>
-            <li class="w-full">
               <a
-                class="text-white hidden {% if request.path == '/contact/'%} bg-[#00D1CD] {% else %} bg-[#3E4040] {% endif %} link xl:flex justify-center items-center gap-2 w-full py-[1rem] rounded-md cursor-pointer hover:bg-[#00D1CD] ease-in duration-300"
+                class="text-[1.7rem] md:text-[2rem] {% if request.path == '/about/'%} text-[#00D1CD] {% else %} text-white{% endif %} items-center xl:hidden flex flex-col gap-0"
+                hx-target="#main"
+                hx-get="{% url 'about' %}"
+                hx-push-url="true"
+                hx-trigger="click"
+                ><i class="bi bi-info-circle-fill"></i>
+                <span class="text-[0.7rem] md:text-[1rem]">About</span></a
+              >
+            </li>
+            <li class="">
+              <a
+                class="hidden {% if request.path == '/contact/'%} bg-[#00D1CD] font-bold text-gray-800 {% else %} bg-[#3E4040] text-white {% endif %} link xl:flex justify-center items-center gap-2 w-full 2xl:py-[1rem] lg:py-[0.7rem] rounded-md cursor-pointer hover:bg-[#00D1CD] hover:text-gray-800 hover:font-bold ease-in duration-300"
+                hx-get="{% url 'contact' %}"
+                hx-target="#main"
+                hx-swap="innerHTML"
+                hx-push-url="true"
+                href="{% url 'contact' %}"
+                hx-trigger="click"
+                ><i class="uil uil-envelope-minus text-xl"></i> Contact</a
+              >
+              <a
+                class="text-[1.7rem] md:text-[2rem] items-center {% if request.path == '/contact/'%} text-[#00D1CD] {% else %} text-white{% endif %} xl:hidden flex flex-col"
                 hx-get="{% url 'contact' %}"
                 hx-target="#main"
                 hx-push-url="true"
                 href="{% url 'contact' %}"
                 hx-trigger="click"
-                ><i class="uil uil-envelope-minus text-lg"></i> Contact</a
+                ><i class="bi bi-chat-left-text-fill"></i
+                ><span class="text-[0.7rem] md:text-[1rem]">Contact</span></a
               >
-              <a class="text-[2rem] block lg:hidden xl:hidden" href=""><i class="uil uil-envelope-minus  text-[#00D1CD]"></i></a>
             </li>
-            <li class="w-full">
+            <li class="">
               <a
-                class="text-white hidden {% if request.path == '/projects/'%} bg-[#00D1CD] {% else %} bg-[#3E4040] {% endif %} link xl:flex justify-center items-center py-[1rem] gap-2 w-fullpy-[1rem] rounded-md cursor-pointer hover:bg-[#00D1CD] ease-in duration-300"
+                class="hidden {% if request.path == '/projects/'%} bg-[#00D1CD] font-bold text-gray-800 {% else %} bg-[#3E4040] text-white {% endif %} link xl:flex justify-center items-center 2xl:py-[1rem] lg:py-[0.7rem] gap-2 w-full rounded-md cursor-pointer hover:bg-[#00D1CD] hover:text-gray-800 hover:font-bold ease-in duration-300"
                 href="{% url 'projects' %}"
                 hx-get="{% url 'projects' %}"
                 hx-target="#main"
                 hx-push-url="true"
-                ><i class="uil uil-folder text-lg"></i> Projects</a
+                ><i class="uil uil-folder text-xl"></i> Projects</a
               >
-              <a class="text-[2rem] block lg:hidden xl:hidden" href=""><i class="uil uil-folder text-[#00D1CD]"></i></a>
-            </li>
-            <li class="w-full">
               <a
-                class="text-white hidden {% if request.path == '/certifications/' %} bg-[#00D1CD] {% else %} bg-[#3E4040] {% endif %} link xl:flex justify-center items-center gap-2 w-full py-[1rem] rounded-md cursor-pointer hover:bg-[#00D1CD] ease-in duration-300"
+                class="text-[1.7rem] md:text-[2rem] items-center {% if request.path == '/projects/'%} text-[#00D1CD] {% else %} text-white{% endif %} xl:hidden flex flex-col"
+                href="{% url 'projects' %}"
+                hx-get="{% url 'projects' %}"
+                hx-target="#main"
+                hx-push-url="true"
+                ><i class="bi bi-folder-fill"></i
+                ><span class="text-[0.7rem] md:text-[1rem]">Project</span></a
+              >
+            </li>
+            <li class="">
+              <a
+                class="hidden {% if request.path == '/certifications/' %} bg-[#00D1CD] font-bold text-gray-800 {% else %} bg-[#3E4040] text-white {% endif %} link xl:flex justify-center items-center gap-2 w-full 2xl:py-[1rem] lg:py-[0.7rem] rounded-md cursor-pointer hover:bg-[#00D1CD] hover:text-gray-800 hover:font-bold ease-in duration-300"
                 href="{% url 'certifications' %}"
                 hx-get="{% url 'certifications' %}"
                 hx-target="#main"
                 hx-push-url="true"
-                ><i class="uil uil-clipboard-alt text-lg"></i> Certificates
+                ><i class="uil uil-clipboard-alt text-xl"></i> Certificates
               </a>
-              <a class="text-[2rem] block lg:hidden xl:hidden" href=""><i class="uil uil-clipboard-alt text-[#00D1CD]"></i></a>
+              <a
+                class="text-[1.7rem] md:text-[2rem] items-center {% if request.path == '/certifications/'%} text-[#00D1CD] {% else %} text-white{% endif %} xl:hidden flex flex-col"
+                href="{% url 'certifications' %}"
+                hx-get="{% url 'certifications' %}"
+                hx-target="#main"
+                hx-push-url="true"
+                ><i class="bi bi-mortarboard-fill"></i
+                ><span class="text-[0.7rem] md:text-[1rem]"
+                  >Certificates</span
+                ></a
+              >
             </li>
           </ul>
         </div>
@@ -96,11 +151,10 @@
     </div>
     <script>
       function cancelMenu() {
-        document.querySelector(".menu").classList.add('hidden')
-        
+        document.querySelector(".menu").classList.add("hidden");
       }
       function openMenu() {
-        document.querySelector(".menu").classList.remove('hidden')
+        document.querySelector(".menu").classList.remove("hidden");
       }
     </script>
   </body>

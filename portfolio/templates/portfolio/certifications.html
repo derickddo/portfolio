@@ -1,29 +1,70 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} {% load static %} {% block content %}
 <section class="slide-in-right">
-  <div class="container lg:w-[80%] mx-auto mt-[2rem]">
-    <h1 class="text-white text-3xl">Certificates</h1>
-    <div class="">
-      <div class="">
-        <h3 class="text-white text-lg font-bold">Name</h3>
-      </div>
-      <div class="mt-5">
-        <button
-          class="text-white bg-slate-700 py-[1rem] px-[3rem]"
-          id="update"
-          hx-trigger="click"
-          hx-post="{% url 'state' %}"
-          hx-target="#state">
-          Update  
-        </button>
-        <p
-          id="stateDisplay"
-          class="text-white"
-          hx-get="{% url 'state' %}">
-          State : <span id="state">Initial</span>
+  <div class="container w-[90%] 2xl:w-[70%] lg:w-[80%] mx-auto xl:mt-[2rem] mt-[1rem]">
+    <h1 class="text-white text-xl xl:text-3xl">Certificates</h1>
+    <div class="grid  xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 grid-col-1 xl:mt-[2rem] mt-[1rem] gap-8 ">
+      <div
+        class="bg-[#303030] px-[1rem] py-[1.5rem] rounded-md border border-[#00D1CD]">
+        <div class="">
+          <img
+            class="object-cover h-full w-full"
+            src="{% static 'media/Capture.png' %}"
+            alt="" />
+        </div>
+        <h3 class="text-[#00D1CD] text-lg font-bold mt-3">
+          Introduction to Back-End Development
+        </h3>
+        <p class="text-white mt-[1rem]">
+          completed this course on November 4, 2022
         </p>
+        <div class="mt-[1.5rem]">
+          <a
+            href=""
+            class="text-[#00D1CD] gap-3 flex items-center justify-center w-full border hover:bg-[#00D1CD] hover:text-gray-800 hover:font-bold rounded-md border-[#00D1CD] xl:px-[2rem] py-[0.4rem]"
+            ><i class="uil uil-clipboard-alt text-2xl"></i> View Certificate</a
+          >
+        </div>
+      </div>
+      <div class="bg-[#303030] px-[1rem] py-[1.5rem] rounded-md border border-[#00D1CD]">
+        <div class="">
+          <img class="" src="{% static 'media/Capture.png' %}" alt="" />
+        </div>
+        <h3 class="text-[#00D1CD] text-lg font-bold mt-3">
+          Introduction to Back-End Development
+        </h3>
+        <p class="text-white mt-[1rem]">
+          completed this course on November 4, 2022
+        </p>
+        <div class="mt-[1.5rem]">
+          <a
+            href=""
+            class="text-[#00D1CD] gap-3 flex items-center justify-center w-full  border hover:bg-[#00D1CD] hover:text-gray-800 hover:font-bold rounded-md border-[#00D1CD] xl:px-[2rem] py-[0.4rem]"
+            ><i class="uil uil-clipboard-alt text-2xl"></i> View Certificate</a
+          >
+        </div>
+      </div>
+      <div class="bg-[#303030]  px-[1rem] py-[1.5rem] rounded-md border border-[#00D1CD]">
+        <div class="">
+          <img class="" src="{% static 'media/Capture.png' %}" alt="" />
+        </div>
+        <h3 class="text-[#00D1CD] text-lg font-bold mt-3">
+          Introduction to Back-End Development
+        </h3>
+        <p class="text-white mt-[1rem]">
+          completed this course on November 4, 2022
+        </p>
+        <div class="mt-[1.5rem]">
+          <a
+            href=""
+            class="text-[#00D1CD] gap-3 flex items-center justify-center w-full  border hover:bg-[#00D1CD] hover:text-gray-800 hover:font-bold rounded-md border-[#00D1CD] xl:px-[2rem] py-[0.4rem]"
+            ><i class="uil uil-clipboard-alt text-2xl"></i> View Certificate</a
+          >
+        </div>
       </div>
     </div>
+     <div class="lg:h-[10rem] h-[8rem]">
+      </div>
   </div>
 </section>
 
-{% endblock content %} 
+{% endblock content %}

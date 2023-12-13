@@ -1,12 +1,12 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
-<section class="slide-in-right overflow-auto">
-  <div class="container w-[90%] md:w-[90%] lg:w-[80%] mx-auto">
-    <div class="grid-cols-1 grid lg:grid-cols-2 xlg:grid-cols-2 2xl:grid-cols-2 ">
-      <div class="lg:mt-[5rem]">
-        <p class="text-white text-xl xl:text-5xl lg:text-2xl leading-[6rem]">
+<section class="slide-in-right  h-[calc(100vh-12rem)] ">
+  <div class="container w-[90%] 2xl:w-[70%] h-full md:w-[85%] lg:w-[80%] mx-auto">
+    <div class="grid-cols-1 grid  lg:grid-cols-1 h-full xl:grid-cols-2 2xl:grid-cols-2 ">
+      <div class="xl:flex xl:flex-col mt-[2rem]  xl:mt-0  xl:justify-center ">
+        <p class="text-white  2xl:text-[2.2rem] text-xl lg:text-3xl md:text-3xl">
             <span class="relative">I'm </span>
-            <span class="text_2nd relative">
-                 <span  class="text-[#00D1CD]">
+            <span class="text_2nd  relative">
+                 <span  class="text-[#00D1CD] font-bold">
                     Derick Danso Okyere
                 </span>
                 
@@ -14,17 +14,17 @@
             </span>
            
         </p>
-        <p class="text-white xl:text-3xl lg:text-xl lg:mt-[2rem]"><span class="text-[#00D1CD]">A Fullstack</span> engineer;</p>
-        <p class="text-white leading-8 mt-[2rem] text-lg">I'm an enthusiastic and dedicated full-stack web developer, eager to embark on my journey as a junior in the world of software development. I specialize in Django and Django Rest Framework</p>
-        <div class="mt-[2rem]">
+        <p class="text-white 2xl:text-2xl md:text-xl mt-[1rem] 2xl:mt-[1.5rem]"><span class="text-[#00D1CD]">A Fullstack</span> engineer;</p>
+        <p style="line-height: 1.8;" class="text-gray-300 mt-[1rem] 2xl:mt-[1.5rem] text-sm lg:mt-[1rem] md:text-[1rem]">I'm an enthusiastic and dedicated full-stack web developer, eager to embark on my journey as a junior in the world of software development. I specialize in Django and Django Rest Framework</p>
+        <div class="mt-[2rem] 2xl:mt-[2rem]">
           <a href="index.php?page=contact">
-            <button class="bg-[#00D1CD] px-[2rem] py-[0.5rem] lg:py-[1rem] rounded-md text-white hover:bg-[#3E4040]">Contact Me <i class="uil uil-message text-lg"></i></button>
+            <button class="bg-[#3E4040] duration-300 ease-in-out 2xl:w-[249px] w-[195.19px] py-[0.7rem] 2xl:py-[1rem] rounded-md text-white font-bold hover:bg-[#00D1CD] hover:text-gray-800">Contact Me <i class="uil uil-message text-lg"></i></button>
           </a>
         </div>
       </div>
-      <div class="fade-in-fwd">
+      <div class="z-10 flex justify-center">
         <img
-          class="w-[45rem] h-full"
+          class=""
           src="{% static 'media/Group 2.svg' %}"
           alt="" />
       </div>

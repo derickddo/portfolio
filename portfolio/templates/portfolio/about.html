@@ -1,0 +1,20 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<section class="slide-in-right">
+  <div class="w-[90%] lg:w-[80%] 2xl:w-[70%] md:w-[85%] mx-auto">
+    <div class="grid xl:grid-cols-2 grid-col-1  mt-[1rem] md:mt-[2rem] place-items-center">
+      <div class="">
+        <h1 class="text-[#00D1CD] font-bold text-3xl xl:text-4xl">About Me</h1>
+        <p class="mt-[1rem]   leading-[2] text-gray-300">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit optio
+          soluta odio fuga iure nulla hic reiciendis beatae! Ab tenetur
+          consequuntur blanditiis sapiente distinctio in, assumenda qui
+          obcaecati reprehenderit pariatur?
+        </p>
+      </div>
+      <div class="">
+        <img class="lg:w-[45rem] w-full" src="{% static 'media/Group 2.svg' %}" alt="" />
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock content %}
