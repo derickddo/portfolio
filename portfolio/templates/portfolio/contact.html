@@ -1,12 +1,12 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
-<section class="slide-in-right">
-  <div class="xl:w-[70%] w-[90%]  mx-auto">
-    <div class="xl:mt-[2rem] mt-[1rem]">
-      <div class="lg:grid grid-col-1 place-items-center flex justify-center  xl:place-items-start xl:grid-cols-2">
+<section class="slide-in-right xl:h-[calc(100vh-13rem)] h-[calc(100vh-12rem)] ">
+  <div class="xl:w-[70%] w-[90%]  mx-auto h-full">
+    <div class="mt-[1rem] xl:mt-0 h-full">
+      <div class="grid grid-col-1 h-full  xl:grid-cols-2 place-content-center">
         <div class="hidden h-full xl:block">
             <img class="object-cover  h-full rounded-tl-md rounded-bl-md" src="{% static 'media/doodle.png' %}" alt="">
         </div>
-        <div class="xl:p-[2rem] w-full lg:w-[30rem]  p-[1.5rem] rounded-md xl:rounded-none bg-[#303030] rounded-tr-md rounded-br-md">
+        <div class="xl:p-[2rem] w-full lg:w-[30rem] xl:w-full  p-[1.5rem] rounded-md xl:rounded-none bg-[#303030] rounded-tr-md rounded-br-md">
           <h3 class="text-white text-xl xl:text-2xl font-bold">Contact</h3>
           <div class="mt-[2rem]">
             <form action="">

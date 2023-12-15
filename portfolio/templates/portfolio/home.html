@@ -3,22 +3,22 @@
   <div class="container w-[90%] 2xl:w-[70%] h-full md:w-[85%] lg:w-[80%] mx-auto">
     <div class="grid-cols-1 grid  lg:grid-cols-1 h-full xl:grid-cols-2 2xl:grid-cols-2 ">
       <div class="xl:flex xl:flex-col mt-[2rem]  xl:mt-0  xl:justify-center ">
-        <p class="text-white  2xl:text-[2.2rem] text-xl lg:text-3xl md:text-3xl">
+        <p class="text-white  2xl:text-[2.3rem] text-2xl lg:text-3xl md:text-3xl">
             <span class="relative">I'm </span>
             <span class="text_2nd  relative">
                  <span  class="text-[#00D1CD] font-bold">
-                    Derick Danso Okyere
+                    {{profile.user.first_name}} {{profile.user.last_name}}
                 </span>
                 
                 
             </span>
            
         </p>
-        <p class="text-white 2xl:text-2xl md:text-xl mt-[1rem] 2xl:mt-[1.5rem]"><span class="text-[#00D1CD]">A Fullstack</span> engineer;</p>
-        <p style="line-height: 1.8;" class="text-gray-300 mt-[1rem] 2xl:mt-[1.5rem] text-sm lg:mt-[1rem] md:text-[1rem]">I'm an enthusiastic and dedicated full-stack web developer, eager to embark on my journey as a junior in the world of software development. I specialize in Django and Django Rest Framework</p>
+        <p class="text-white 2xl:text-2xl text-2xl mt-[1rem] 2xl:mt-[1.5rem]"><span class="text-[#00D1CD]">A Fullstack</span> engineer;</p>
+        <p style="line-height: 1.5;" class="text-gray-300 mt-[2rem] 2xl:mt-[1.5rem]  lg:mt-[1rem] text-[1rem]">{{profile.bio|truncatewords:30}}</p>
         <div class="mt-[2rem] 2xl:mt-[2rem]">
-          <a href="index.php?page=contact">
-            <button class="bg-[#3E4040] duration-300 ease-in-out 2xl:w-[249px] w-[195.19px] py-[0.7rem] 2xl:py-[1rem] rounded-md text-white font-bold hover:bg-[#00D1CD] hover:text-gray-800">Contact Me <i class="uil uil-message text-lg"></i></button>
+          <a href="{% url 'contact' %}" hx-get="{% url 'contact' %}" hx-push-url="true" hx-target="#main">
+            <button class="bg-[#3E4040] duration-300 ease-in-out 2xl:w-[249px] w-[195.19px] py-[0.7rem] 2xl:py-[1rem] rounded-md text-white hover:bg-[#00D1CD] hover:font-bold hover:text-gray-800">Contact Me <i class="uil uil-message text-lg"></i></button>
           </a>
         </div>
       </div>

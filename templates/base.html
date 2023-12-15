@@ -11,9 +11,11 @@
     <link
       href="https://fonts.googleapis.com/css2?family=B612+Mono&display=swap"
       rel="stylesheet" />
-     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap"
+      rel="stylesheet" />
     <link
       rel="stylesheet"
       href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" />
@@ -27,7 +29,7 @@
 
     <style>
       body {
-        font-family: "B612 Mono", monospace;
+        font-family: "Space Mono", sans-serif;
         background: #202020;
       }
     </style>
@@ -39,11 +41,12 @@
 
       <div
         class="h-[5rem] md:h-[7rem] 2xl:h-[8rem] xl:h-[7rem] flex items-center z-10 fixed bottom-0 right-0 left-0 bg-gradient-to-tr w-full bg-[#202020] bg-opacity-70 shadow-md backdrop-filter backdrop-blur-md">
-        <div class="container w-[90%] md:w-[85%] 2xl:w-[70%] lg:w-[80%] mx-auto">
+        <div
+          class="container w-[90%] md:w-[85%] 2xl:w-[70%] lg:w-[80%] mx-auto">
           <ul class="xl:grid gap-3 xl:grid-cols-5 flex justify-between">
             <li class="">
               <a
-                class="xl:flex justify-center hidden {% if request.path == '/'%} bg-[#00D1CD] font-bold text-gray-800 {% else %} bg-[#3E4040] text-white{% endif %} items-center gap-2 w-full 2xl:py-[1rem] lg:py-[0.7rem] rounded-md cursor-pointer hover:bg-[#00D1CD] hover:text-gray-800 hover:font-bold ease-in duration-300"
+                class="xl:flex justify-center hidden {% if request.path == '/'%} bg-[#00D1CD] text-gray-800  font-bold {% else %} bg-[#3E4040] text-white{% endif %} items-center gap-2 w-full 2xl:py-[1rem] lg:py-[0.7rem] rounded-md cursor-pointer hover:bg-[#00D1CD] hover:text-gray-800 hover:font-bold ease-in duration-300"
                 href="{% url 'home' %}"
                 hx-get="{% url 'home' %}"
                 hx-target="#main"
@@ -65,8 +68,7 @@
 
             <li class="">
               <a
-                class="{% if request.path == '/about/'%} bg-[#00D1CD] text-gray-800 font-bold {% else %} bg-[#3E4040] text-white {% endif %} hidden xl:flex justify-center items-center gap-2 w-full 2xl:py-[1rem] lg:py-[0.7rem] rounded-md cursor-pointer hover:bg-[#00D1CD] hover:text-gray-800 font-bold ease-in duration-300"
-                
+                class="{% if request.path == '/about/'%} bg-[#00D1CD] text-gray-800  {% else %} bg-[#3E4040] text-white {% endif %} hidden xl:flex justify-center items-center gap-2 w-full 2xl:py-[1rem] lg:py-[0.7rem] rounded-md cursor-pointer hover:bg-[#00D1CD] hover:text-gray-800 font-bold ease-in duration-300"
                 hx-target="#main"
                 hx-get="{% url 'about' %}"
                 hx-push-url="true"
@@ -156,6 +158,23 @@
       function openMenu() {
         document.querySelector(".menu").classList.remove("hidden");
       }
+
+      // Split the bio content into paragraphs
+      const bioContent = document.getElementById("bioContent");
+      console.log(bioContent);
+      if (bioContent) {
+        const paragraphs = bioContent.innerHTML
+          .split("/n")
+          .map((para) => `<p class="mb-[2rem]">${para}</p>`)
+          .join("");
+        bioContent.innerHTML = paragraphs;
+      }
     </script>
+
+    
+    {% block js %}
+      
+    {% endblock js %}
+      
   </body>
 </html>

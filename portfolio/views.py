@@ -6,6 +6,11 @@ from django.views.generic import TemplateView, ListView, DetailView, CreateView
 # Create your views here.
 class HomeView(TemplateView):
     template_name = 'portfolio/home.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['profile'] = UserProfile.objects.first()
+        return context
 
 class ProjectListView(ListView):
     model = Project
