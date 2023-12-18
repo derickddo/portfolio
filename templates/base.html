@@ -37,7 +37,11 @@
   </head>
   <body class="h-[100vh] overflow-auto">
     <div id="main" class="relative h-full">
-      {% include 'navbar.html' %} {% block content %} {% endblock content %}
+      {% include 'navbar.html' %} 
+      
+      {% block content %} 
+      
+      {% endblock content %}
 
       <div
         class="h-[5rem] md:h-[7rem] 2xl:h-[8rem] xl:h-[7rem] flex items-center z-10 fixed bottom-0 right-0 left-0 bg-gradient-to-tr w-full bg-[#202020] bg-opacity-70 shadow-md backdrop-filter backdrop-blur-md">
@@ -160,15 +164,15 @@
       }
 
       // Split the bio content into paragraphs
-      const bioContent = document.getElementById("bioContent");
-      console.log(bioContent);
-      if (bioContent) {
-        const paragraphs = bioContent.innerHTML
-          .split("/n")
-          .map((para) => `<p class="mb-[2rem]">${para}</p>`)
-          .join("");
-        bioContent.innerHTML = paragraphs;
-      }
+     // const bioContent = document.getElementById("bioContent");
+      //console.log(bioContent);
+      //if (bioContent) {
+      //   const paragraphs = bioContent.innerHTML
+      //     .split("/n")
+      //     .map((para) => `<p class="mb-[2rem]">${para}</p>`)
+      //     .join("");
+      //   bioContent.innerHTML = paragraphs;
+      // }
     </script>
 
     

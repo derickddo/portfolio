@@ -1,12 +1,19 @@
-{% extends 'base.html' %} {% load static %} {% block content %}
+{% extends 'base.html' %} 
+{% load static %} 
+{% load custom_filters %}
+{% block content %}
 <section class="slide-in-right">
   <div class="w-[90%] lg:w-[80%] 2xl:w-[70%] md:w-[85%] mx-auto">
-    <div class="h-[100vh]">
+    <div class="mt-[2rem]">
       <div class="grid xl:grid-cols-2 grid-col-1 place-items-center">
         <div class="">
           <h1 class="text-[#00D1CD] font-bold text-3xl xl:text-4xl">About Me</h1>
           <div class="lg:mt-[2rem] mt-[1rem]" hx-target="#bioContent" hx-swap="innerHTML">
-            <p class="text-gray-400 leading-7" id="bioContent">{{ profile.bio }}</p>
+            {% with result=profile.bio|split:'/n' %}
+              {% for line in result %}
+                <p class="text-gray-400 leading-7 mb-3">{{ line }}</p>
+              {% endfor %}
+            {% endwith %}
           </div>
         </div>
         <div class="">
@@ -16,15 +23,13 @@
             alt="" />
         </div>
       </div>
-      <div class="hidden lg:block">
-        <a hx-on:click="handleScroll()" hx-trigger="click" class="bg-[#3E4040] hover:bg-[#00D1CD] text-white hover:text-gray-800 duration-300 ease-in-out px-[1.5rem] text-[2rem] py-4 rounded-full" href=""><i class="bi bi-arrow-down "></i></a>
-      </div>
+     
     </div>
     
 
       
     
-    <div class=" mt-[8rem]">
+    <div class=" mt-[3rem]">
       <div class="flex flex-col items-center " id="tech">
         <h2 class="text-[#00D1CD] text-3xl text-center font-bold">Technologies</h2>
         <p class="text-gray-400 w-full lg:w-[50rem] mt-[1rem] text-center">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste, rerum, voluptatem quod laborum velit dicta aliquid a recusandae dolor</p>

@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import UserProfile, Technology, Project, Certification, Contact
+from .models import UserProfile, Project, Certification, Contact
 from django.views.generic import TemplateView, ListView, DetailView, CreateView
 
 
