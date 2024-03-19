@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load static tailwind_tags %} {% load static %}
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -50,7 +51,7 @@
           <ul class="xl:grid gap-3 xl:grid-cols-5 flex justify-between">
             <li class="">
               <a
-                class="xl:flex justify-center hidden {% if request.path == '/'%} bg-[#00D1CD] text-gray-800  font-bold {% else %} bg-[#3E4040] text-white{% endif %} items-center gap-2 w-full 2xl:py-[1rem] lg:py-[0.7rem] rounded-md cursor-pointer hover:bg-[#00D1CD] hover:text-gray-800 hover:font-bold ease-in duration-300"
+                class="xl:flex justify-center hidden {% if request.path == '/'%} bg-[#00D1CD] text-gray-800   {% else %} bg-[#3E4040] text-white{% endif %} items-center gap-2 w-full 2xl:py-[1rem] lg:py-[0.7rem] rounded-md cursor-pointer hover:bg-[#00D1CD] hover:text-gray-800  ease-in duration-300"
                 href="{% url 'home' %}"
                 hx-get="{% url 'home' %}"
                 hx-target="#main"
@@ -72,7 +73,8 @@
 
             <li class="">
               <a
-                class="{% if request.path == '/about/'%} bg-[#00D1CD] text-gray-800  {% else %} bg-[#3E4040] text-white {% endif %} hidden xl:flex justify-center items-center gap-2 w-full 2xl:py-[1rem] lg:py-[0.7rem] rounded-md cursor-pointer hover:bg-[#00D1CD] hover:text-gray-800 font-bold ease-in duration-300"
+                class="{% if request.path == '/about/'%} bg-[#00D1CD] text-gray-800  {% else %} bg-[#3E4040] text-white {% endif %} hidden xl:flex justify-center items-center gap-2 w-full 2xl:py-[1rem] lg:py-[0.7rem] rounded-md cursor-pointer hover:bg-[#00D1CD] hover:text-gray-800  ease-in duration-300"
+                href="{% url 'about' %}"
                 hx-target="#main"
                 hx-get="{% url 'about' %}"
                 hx-push-url="true"
@@ -91,7 +93,7 @@
             </li>
             <li class="">
               <a
-                class="hidden {% if request.path == '/contact/'%} bg-[#00D1CD] font-bold text-gray-800 {% else %} bg-[#3E4040] text-white {% endif %} link xl:flex justify-center items-center gap-2 w-full 2xl:py-[1rem] lg:py-[0.7rem] rounded-md cursor-pointer hover:bg-[#00D1CD] hover:text-gray-800 hover:font-bold ease-in duration-300"
+                class="hidden {% if request.path == '/contact/'%} bg-[#00D1CD]  text-gray-800 {% else %} bg-[#3E4040] text-white {% endif %} link xl:flex justify-center items-center gap-2 w-full 2xl:py-[1rem] lg:py-[0.7rem] rounded-md cursor-pointer hover:bg-[#00D1CD] hover:text-gray-800  ease-in duration-300"
                 hx-get="{% url 'contact' %}"
                 hx-target="#main"
                 hx-swap="innerHTML"
@@ -113,7 +115,7 @@
             </li>
             <li class="">
               <a
-                class="hidden {% if request.path == '/projects/'%} bg-[#00D1CD] font-bold text-gray-800 {% else %} bg-[#3E4040] text-white {% endif %} link xl:flex justify-center items-center 2xl:py-[1rem] lg:py-[0.7rem] gap-2 w-full rounded-md cursor-pointer hover:bg-[#00D1CD] hover:text-gray-800 hover:font-bold ease-in duration-300"
+                class="hidden {% if request.path == '/projects/'%} bg-[#00D1CD]  text-gray-800 {% else %} bg-[#3E4040] text-white {% endif %} link xl:flex justify-center items-center 2xl:py-[1rem] lg:py-[0.7rem] gap-2 w-full rounded-md cursor-pointer hover:bg-[#00D1CD] hover:text-gray-800  ease-in duration-300"
                 href="{% url 'projects' %}"
                 hx-get="{% url 'projects' %}"
                 hx-target="#main"
@@ -132,7 +134,7 @@
             </li>
             <li class="">
               <a
-                class="hidden {% if request.path == '/certifications/' %} bg-[#00D1CD] font-bold text-gray-800 {% else %} bg-[#3E4040] text-white {% endif %} link xl:flex justify-center items-center gap-2 w-full 2xl:py-[1rem] lg:py-[0.7rem] rounded-md cursor-pointer hover:bg-[#00D1CD] hover:text-gray-800 hover:font-bold ease-in duration-300"
+                class="hidden {% if request.path == '/certifications/' %} bg-[#00D1CD]  text-gray-800 {% else %} bg-[#3E4040] text-white {% endif %} link xl:flex justify-center items-center gap-2 w-full 2xl:py-[1rem] lg:py-[0.7rem] rounded-md cursor-pointer hover:bg-[#00D1CD] hover:text-gray-800 ease-in duration-300"
                 href="{% url 'certifications' %}"
                 hx-get="{% url 'certifications' %}"
                 hx-target="#main"

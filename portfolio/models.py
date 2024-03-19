@@ -12,6 +12,7 @@ class UserProfile(models.Model):
     linkedin_link = models.URLField(blank=True, null=True)
     instagram_link = models.URLField(blank=True, null=True)
     facebook_link = models.URLField(blank=True, null=True)
+    email = models.EmailField(blank=True, null=True)
 
     @receiver(signal=post_save, sender=User)
     def create_profile(sender, instance, created, **kwargs):
@@ -31,10 +32,11 @@ class UserProfile(models.Model):
 
 class Technology(models.Model):
     name = models.CharField(max_length=255)
-    image = models.ImageField()
+    image = models.FileField()
 
     class Meta:
         db_table = 'technology'
+        verbose_name_plural = 'technologies'
     
     def __str__(self):
         return self.name
@@ -43,7 +45,6 @@ class Technology(models.Model):
 class Project(models.Model):
     title = models.CharField(max_length=30)
     description = models.TextField()
-    image = models.ImageField()
     link = models.URLField(blank=True)
     technologies_used = models.ManyToManyField(Technology)
 

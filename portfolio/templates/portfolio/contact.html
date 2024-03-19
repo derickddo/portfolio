@@ -1,30 +1,52 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
-<section class="slide-in-right xl:h-[calc(100vh-13rem)] h-[calc(100vh-12rem)] ">
+
+<!--alert for the messages-->
+{% if messages %}
+<div class="container mx-auto">
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    {% for message in messages %}
+    <strong>{{ message }}</strong>
+    {% endfor %}
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"></button>
+  </div>
+</div>
+{% endif %}
+  
+
+<section class="slide-in-bottom xl:h-[calc(100vh-13rem)] h-[calc(100vh-12rem)] ">
   <div class="xl:w-[70%] w-[90%]  mx-auto h-full">
-    <div class="mt-[1rem] xl:mt-0 h-full">
-      <div class="grid grid-col-1 h-full  xl:grid-cols-2 place-content-center">
-        <div class="hidden h-full xl:block">
+    <div class="mt-[1rem] xl:mt-[2rem]">
+      <div class="">
+        <!-- <div class="hidden h-full xl:block">
             <img class="object-cover  h-full rounded-tl-md rounded-bl-md" src="{% static 'media/doodle.png' %}" alt="">
-        </div>
-        <div class="xl:p-[2rem] w-full lg:w-[30rem] xl:w-full  p-[1.5rem] rounded-md xl:rounded-none bg-[#303030] rounded-tr-md rounded-br-md">
+        </div> -->
+        <div class="xl:p-[2rem] w-full lg:w-[30rem] mx-auto  p-[1.5rem] rounded-lg  bg-[#303030]">
           <h3 class="text-white text-xl xl:text-2xl font-bold">Contact</h3>
           <div class="mt-[2rem]">
-            <form action="">
+            <form action="" method="post">
+              {% csrf_token %}
               <div class="">
                 <label class="text-white" for="email">Email</label>
                 <input
-                  class="border-b mt-3 w-full h-[3rem] rounded-md bg-[#303030] border-[#00D1CD]"
+                  class="border-b mt-3 w-full text-gray-300 h-[3rem] rounded-md bg-[#303030] border-[#00D1CD]"
                   type="email"
                   name="email"
                   id=""
-                  placeholder="Email address" />
+                  placeholder="Email address"
+                  required />
               </div>
               <div class="xl:mt-10 mt-5">
-                <label class="text-white" for="email">Message</label>
+                <label class="text-white" for="message">Message</label>
                 <textarea
-                  class="border-b mt-3 w-full h-[8rem] xl:h-[18rem] rounded-md bg-[#303030] border-[#00D1CD]"
+                  class="border-b mt-3 w-full h-[8rem] xl:h-[12rem] text-gray-300 rounded-md bg-[#303030] border-[#00D1CD]"
                   id=""
-                  placeholder="Message">
+                  name="message"
+                  placeholder="Message"
+                  required>
                 </textarea>
               </div>
               <div class="mt-10">
@@ -34,6 +56,9 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class="h-[10rem]">
+
     </div>
   </div>
 </section>

@@ -2,16 +2,16 @@
 {% load static %} 
 {% load custom_filters %}
 {% block content %}
-<section class="slide-in-right">
-  <div class="w-[90%] lg:w-[80%] 2xl:w-[70%] md:w-[85%] mx-auto">
-    <div class="mt-[2rem]">
-      <div class="grid xl:grid-cols-2 grid-col-1 place-items-center">
-        <div class="">
+<section class="slide-in-bottom">
+  <div class="w-[90%] lg:w-[80%] 2xl:w-[70%] md:w-[85%] mx-auto ">
+    <div class="">
+      <div class="grid xl:grid-cols-2 grid-col-1 ">
+        <div class="lg:mt-[4rem] mt-[2rem]">
           <h1 class="text-[#00D1CD] font-bold text-3xl xl:text-4xl">About Me</h1>
-          <div class="lg:mt-[2rem] mt-[1rem]" hx-target="#bioContent" hx-swap="innerHTML">
+          <div class="mt-[1rem]" hx-target="#bioContent" hx-swap="innerHTML">
             {% with result=profile.bio|split:'/n' %}
               {% for line in result %}
-                <p class="text-gray-400 leading-7 mb-3">{{ line }}</p>
+                <p class="text-gray-300 leading-7 mb-5">{{ line }}</p>
               {% endfor %}
             {% endwith %}
           </div>
@@ -26,9 +26,6 @@
      
     </div>
     
-
-      
-    
     <div class=" mt-[3rem]">
       <div class="flex flex-col items-center " id="tech">
         <h2 class="text-[#00D1CD] text-3xl text-center font-bold">Technologies</h2>
@@ -41,23 +38,23 @@
             <h3 class="text-[#00D1CD] text-2xl mt-[2rem] font-bold">Frontend</h3>
             <div class="flex flex-wrap justify-center gap-5 mt-[1rem]">
               <div class="flex flex-col items-center justify-center">
-                <img class="w-[5rem] h-[5rem]" src="{% static 'media/html.svg' %}" alt="">
+                <img class="w-[3rem] h-[3rem] lg:w-[5rem] lg:h-[5rem]" src="{% static 'media/html.svg' %}" alt="">
                 <p class="text-gray-400 mt-[0.5rem]">HTML</p>
               </div>
               <div class="flex flex-col items-center">
-                <img class="w-[5rem] h-[5rem]" src="{% static 'media/css.svg' %}" alt="">
+                <img class="w-[3rem] h-[3rem] lg:w-[5rem] lg:h-[5rem]" src="{% static 'media/css.svg' %}" alt="">
                 <p class="text-gray-400 mt-[0.5rem]">CSS</p>
               </div>
               <div class="flex flex-col items-center">
-                <img class="w-[5rem] h-[5rem]" src="{% static 'media/javascript.svg' %}" alt="">
+                <img class="w-[3rem] h-[3rem] lg:w-[5rem] lg:h-[5rem]" src="{% static 'media/javascript.svg' %}" alt="">
                 <p class="text-gray-400 mt-[0.5rem]">Javascript</p>
               </div>
               <div class="flex flex-col items-center">
-                <img class="w-[5rem] h-[5rem]" src="{% static 'media/bootstrap.svg' %}" alt="">
+                <img class="w-[3rem] h-[3rem] lg:w-[5rem] lg:h-[5rem]" src="{% static 'media/bootstrap.svg' %}" alt="">
                 <p class="text-gray-400 mt-[0.5rem]">Bootstrap</p>
               </div>
               <div class="flex flex-col items-center">
-                <img class="w-[5rem] h-[5rem]" src="{% static 'media/tailwind.svg' %}" alt="">
+                <img class="w-[3rem] h-[3rem] lg:w-[5rem] lg:h-[5rem] " src="{% static 'media/tailwind.svg' %}" alt="">
                 <p class="text-gray-400 mt-[0.5rem]">Tailwind</p>
               </div>
               
@@ -68,12 +65,12 @@
             <h3 class="text-[#00D1CD] text-2xl mt-[2rem] font-bold">Backend</h3>
             <div class="flex flex-wrap justify-center gap-5 mt-[1rem]">
               <div class="flex flex-col items-center">
-                <img class="w-[5rem] h-[5rem]" src="{% static 'media/python.svg' %}" alt="">
+                <img class="w-[3rem] h-[3rem] lg:w-[5rem] lg:h-[5rem]" src="{% static 'media/python.svg' %}" alt="">
                 <p class="text-gray-400 mt-[0.5rem]">Python</p>
               </div>
               <div class="flex flex-col items-center">
-                <img class="w-[5rem] h-[5rem]" src="{% static 'media/django.svg' %}" alt="">
-                <p class="text-gray-300 mt-[0.5rem]">Django</p>
+                <img class="w-[3rem] h-[3rem] lg:w-[5rem] lg:h-[5rem]" src="{% static 'media/django.svg' %}" alt="">
+                <p class="text-gray-400 mt-[0.5rem]">Django</p>
               </div>
               
           </div>
@@ -83,11 +80,11 @@
             <h3 class="text-[#00D1CD] text-2xl mt-[2rem] font-bold">Database</h3>
             <div class="flex flex-wrap justify-center gap-5 mt-[1rem]">
               <div class="flex flex-col items-center">
-                <img class="w-[5rem] h-[5rem]" src="{% static 'media/mysql.svg' %}" alt="">
+                <img class="w-[3rem] h-[3rem] lg:w-[5rem] lg:h-[5rem]" src="{% static 'media/mysql.svg' %}" alt="">
                 <p class="text-gray-400 mt-[0.5rem]">MySQL</p>
               </div>
               <div class="flex flex-col items-center">
-                <img class="w-[5rem] h-[5rem]" src="{% static 'media/sqlite.svg' %}" alt="">
+                <img class="w-[3rem] h-[3rem] lg:w-[5rem] lg:h-[5rem]" src="{% static 'media/sqlite.svg' %}" alt="">
                 <p class="text-gray-400 mt-[0.5rem]">Sqlite</p>
               </div>
             </div>
@@ -95,6 +92,8 @@
         </div>
       </div>
     </div>
+
+    
   </div>
   <div class="h-[10rem]"></div>
 </section>

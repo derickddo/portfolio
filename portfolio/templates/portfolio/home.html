@@ -2,7 +2,7 @@
 {% load static %} 
 {% load custom_filters %}
 {% block content %}
-<section class="slide-in-right  h-[calc(100vh-12rem)] ">
+<section class="slide-in-bottom  h-[calc(100vh-12rem)] ">
   <div class="container w-[90%] 2xl:w-[70%] h-full md:w-[85%] lg:w-[80%] mx-auto">
     <div class="grid-cols-1 grid  lg:grid-cols-1 h-full xl:grid-cols-2 2xl:grid-cols-2 ">
       <div class="xl:flex xl:flex-col mt-[2rem]  xl:mt-0  xl:justify-center ">
@@ -20,7 +20,8 @@
         <p class="text-white 2xl:text-2xl text-2xl mt-[1rem] 2xl:mt-[1.5rem]"><span class="text-[#00D1CD]">A Fullstack</span> engineer;</p>
         <p style="line-height: 1.5;" class="text-gray-300 mt-[2rem] 2xl:mt-[1.5rem]  lg:mt-[1rem] text-[1rem]">{{ profile.bio|truncate:39 }}</p>
         <div class="mt-[2rem] 2xl:mt-[2rem]">
-          <a href="{% url 'contact' %}" hx-get="{% url 'contact' %}" hx-push-url="true" hx-target="#main">
+          
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to={{profile.email}}&su=Subject&body=Hello%20there,%20I%20have%20a%20question." target="_blank">
             <button class="bg-[#3E4040] duration-300 ease-in-out 2xl:w-[249px] w-[195.19px] py-[0.7rem] 2xl:py-[1rem] rounded-md text-white hover:bg-[#00D1CD] hover:font-bold hover:text-gray-800">Contact Me <i class="uil uil-message text-lg"></i></button>
           </a>
         </div>
