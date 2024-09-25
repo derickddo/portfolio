@@ -61,6 +61,9 @@ class CertificationListView(ListView):
     template_name = 'portfolio/certifications.html'
     context_object_name = 'certifications'
 
+    def get_queryset(self):
+        return Certification.objects.order_by('-date_received').all()
+
 class AboutView(TemplateView):
     template_name = 'portfolio/about.html'
         
