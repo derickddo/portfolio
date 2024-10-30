@@ -2,102 +2,47 @@
 <section class="slide-in-bottom">
   <div class="container w-[90%] 2xl:w-[70%] lg:w-[80%] mx-auto xl:mt-[2rem] mt-[1rem]">
     <h1 class="text-white text-xl lg:text-2xl 2xl:text-3xl ">Certificates</h1>
-    <div class="grid  xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 grid-col-1 2xl:mt-[2rem] lg:mt-[1rem] mt-[1rem] gap-5 ">
-      {% for certificate in certifications %}
-      <div
-        class="bg-[#303030] px-[1rem] py-[1.5rem] rounded-md border border-[#00D1CD]">
-        <div class="">
-          <img
-            class="object-cover h-full w-full"
-            src="{% static 'media/Capture.png' %}"
-            alt="" />
+      <div class="grid xl:grid-cols-1 grid-cols-1 md:grid-cols-1 gap-[1.5rem] mt-[1rem]">
+        {% for certificate in certifications %}
+        <div class="bg-[#303030] hover:bg-[#3E4040] border border-[#00D1CD] grid md:grid-cols-3 grid-cols-1 gap-6 md:p-6 p-4 rounded-lg transition duration-300 ease-in-out">
+            <!-- Image Section (spans 2/3 columns on medium and larger screens) -->
+            <div class="md:col-span-2 col-auto">
+                {% if certificate.image %}
+                <img class="object-cover rounded-md w-full h-80" src="{{ certificate.image.url }}" alt="Certificate Image">
+                {% else %}
+                <img class="object-cover rounded-md w-full h-full" src="{% static 'media/Capture.png' %}" alt="Certificate Placeholder">
+                {% endif %}
+            </div>
+            
+            <!-- Certificate Details Section -->
+            <div class="">
+                <!-- Title and Completion Date -->
+                <div>
+                    <h1 class="text-[#00D1CD] font-extrabold text-xl lg:text-xl">{{ certificate.title }}</h1>
+                    <p class="text-white text-sm md:text-base mt-4 leading-relaxed">Completed on {{ certificate.date_received }}</p>
+                </div>
+    
+                <!-- Issuing Organization -->
+                <div class="mt-6">
+                    <h3 class="text-[#00D1CD] font-semibold">Issuing Organization:</h3>
+                    <div class="h-[1px] w-full bg-gray-600 mt-3"></div>
+                    <div class="mt-4 flex items-center gap-4">
+                        <img class="w-[3rem] h-[3rem]" src="{{certificate.issuing_organization.logo.url}}" alt="{{ certificate.issuing_organization.name }}">
+                        <span class="text-white">{{ certificate.issuing_organization.name }}</span>
+                    </div>
+                </div>
+    
+                <!-- View Certificate Button -->
+                <div class="mt-8">
+                    <a href="{{ certificate.certificate_link }}" target="_blank" class="flex items-center justify-center gap-2 w-full text-[#00D1CD] border border-[#00D1CD] hover:bg-[#00D1CD] hover:text-gray-900 hover:font-semibold rounded-lg py-2 transition duration-300 ease-in-out">
+                        <i class="uil uil-clipboard-alt text-2xl"></i> View Certificate
+                    </a>
+                </div>
+            </div>
         </div>
-        <h3 class="text-[#00D1CD] text-lg font-bold mt-3">
-          {{certificate.title}}
-        </h3>
-        <p class="text-white mt-[1rem]">
-          completed this course on {{certificate.date_received}}
-        </p>
-        <!--Issuing organization-->
-        <div class="mt-[1.5rem]">
-          <p class="text-white">Issuing Organization: <img class="w-[2rem] inline" src="{% static certificate.issuing_organization.logo %}" alt=""> {{certificate.issuing_organization.name}}</p>
-        </div>
-        <div class="mt-[1.5rem]">
-          <a
-            href="{{certificate.certificate_link}}"
-            class="text-[#00D1CD] gap-3 flex items-center justify-center w-full border hover:bg-[#00D1CD] hover:text-gray-800 hover:font-bold rounded-md border-[#00D1CD] xl:px-[2rem] py-[0.4rem]"
-            ><i class="uil uil-clipboard-alt text-2xl"></i> View Certificate</a
-          >
-        </div>
-      </div>
-      {% endfor %}
-
-      <div
-        class="bg-[#303030] px-[1rem] py-[1.5rem] rounded-md border border-[#00D1CD]">
-        <div class="">
-          <img
-            class="object-cover h-full w-full"
-            src="{% static 'media/Capture.png' %}"
-            alt="" />
-        </div>
-        <h3 class="text-[#00D1CD] text-lg font-bold mt-3">
-          Introduction to Back-End Development
-        </h3>
-        <p class="text-white mt-[1rem]">
-          completed this course on November 4, 2022
-        </p>
-        <div class="mt-[1.5rem]">
-          <a
-            href=""
-            class="text-[#00D1CD] gap-3 flex items-center justify-center w-full border hover:bg-[#00D1CD] hover:text-gray-800 hover:font-bold rounded-md border-[#00D1CD] xl:px-[2rem] py-[0.4rem]"
-            ><i class="uil uil-clipboard-alt text-2xl"></i> View Certificate</a
-          >
-        </div>
-      </div>
-      <div class="bg-[#303030] px-[1rem] py-[1.5rem] rounded-md border border-[#00D1CD]">
-        <div class="">
-          <img class="" src="{% static 'media/Capture.png' %}" alt="" />
-        </div>
-        <h3 class="text-[#00D1CD] text-lg font-bold mt-3">
-          Introduction to Back-End Development
-        </h3>
-        <p class="text-white mt-[1rem]">
-          completed this course on November 4, 2022
-        </p>
-        <div class="mt-[1.5rem]">
-          <a
-            href=""
-            class="text-[#00D1CD] gap-3 flex items-center justify-center w-full  border hover:bg-[#00D1CD] hover:text-gray-800 hover:font-bold rounded-md border-[#00D1CD] xl:px-[2rem] py-[0.4rem]"
-            ><i class="uil uil-clipboard-alt text-2xl"></i> View Certificate</a
-          >
-        </div>
-      </div>
-      <div class="bg-[#303030]  px-[1rem] py-[1.5rem] rounded-md border border-[#00D1CD]">
-        <div class="">
-          <img class="" src="{% static 'media/Capture.png' %}" alt="" />
-        </div>
-        <h3 class="text-[#00D1CD] text-lg font-bold mt-3">
-          Introduction to Back-End Development
-        </h3>
-        <p class="text-white mt-[1rem]">
-          completed this course on November 4, 2022
-        </p>
-        <!--Issuing organization-->
-        <div class="mt-[1.5rem]">
-          <p class="text-white">Issuing Organization: <img class="w-[2rem] inline" src="{% static 'media/udemy.png' %}" alt=""> Cousera</p>
-        </div>
-        
-
-        <div class="mt-[1.5rem]">
-          <a
-            href=""
-            class="text-[#00D1CD] gap-3 flex items-center justify-center w-full  border hover:bg-[#00D1CD] hover:text-gray-800 hover:font-bold rounded-md border-[#00D1CD] xl:px-[2rem] py-[0.4rem]"
-            ><i class="uil uil-clipboard-alt text-2xl"></i> View Certificate</a
-          >
-        </div>
-      </div>
-      
+        {% endfor %}
     </div>
+  
      <div class="lg:h-[10rem] h-[8rem]">
       </div>
   </div>
