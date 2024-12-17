@@ -5,7 +5,7 @@ from .models import UserProfile, Project, Certification, Contact
 from django.views.generic import TemplateView, ListView, DetailView
 from django.views import View
 from django.views.decorators.csrf import csrf_exempt
-from django.core.mail import send_mail
+from django.core.mail import EmailMessage
 from core.settings import EMAIL_HOST_USER
 
 # import messages
@@ -33,25 +33,27 @@ class ProjectDetailView(DetailView):
 
 class ContactView(View):
 
-    def get(self, request: HttpRequest, *args: str, **kwargs: Any):
+    def get(self, request: HttpRequest):
         return render(request, 'portfolio/contact.html')
     
-    def post(self, request: HttpRequest, *args: str, **kwargs: Any):
+    def post(self, request: HttpRequest):
         email = request.POST['email']
         message = request.POST['message']
+        print(email, message)
     
         # send email
         try:
-            send_mail(
-                'Contact Form Submission',
-                f'You have a new message from {email}:\n\n{message}',
-                email,
-                [EMAIL_HOST_USER],
-                fail_silently=False
+            email = EmailMessage(
+                subject='New Contact Form Submission',
+                body=f'Email: {email}\nMessage: {message}',
+                from_email=email,
+                to=[EMAIL_HOST_USER],
             )
-            messages.success(request, 'Your message was sent successfully.')
-            Contact.objects.create(email=email, message=message)
+            
+            email.send()
+            messages.success(request, 'Your message has been sent successfully!')
         except Exception as e:
+            print(str(e))
             messages.error(request, f'There was an error sending your message.{str(e)}')
         return redirect('home')
         
