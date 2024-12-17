@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     'tailwind',
     'theme',
     'django_browser_reload',
+    
+    'whitenoise'
 ]
 TAILWIND_APP_NAME = 'theme'
 INTERNAL_IPS = [
@@ -138,6 +140,7 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static',
     BASE_DIR / 'theme/static',
 ]
+
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'static/media'
 
